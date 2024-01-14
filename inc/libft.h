@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <stdarg.h>
 
 /*
 ** structs
@@ -51,6 +52,26 @@ int		ft_isprint(int c);
 int		ft_isspace(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+
+/* put */
+
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+void	ft_putnbr(int nb);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *str, int fd);
+void	ft_putendl_fd(char *str, int fd);
+void	ft_putnbr_fd(int n, int fd);
+
+/* ft_printf */
+
+void	ft_character(char c, int *length);
+void	ft_string(char *s, int *length);
+void	ft_decimal_integer(int d, int *length);
+void	ft_unsigned_integer(unsigned int u, int *length);
+void	ft_hexidecimal(unsigned int x, int *length, char char_case, int first);
+void	ft_pointer(size_t p, int *length, int first);
+int		ft_printf(const char *string, ...);
 
 /* memory */
 
