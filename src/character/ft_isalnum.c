@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 22:07:03 by tday              #+#    #+#             */
-/*   Updated: 2024/01/14 14:01:41 by tday             ###   ########.fr       */
+/*   Created: 2024/01/14 14:49:22 by tday              #+#    #+#             */
+/*   Updated: 2024/01/14 14:51:43 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 /*
 	Summary
-	fills a number of bytes (n) at a given memory location with 0 ('\0').
+	checks if the given character is an alphanumerical character.
 
 	Inputs
-	pointer = a pointer to the memory to be set.
-	n = number of bytes to be set to the character.
+	c = character (int variable as it uses ascii).
 
 	Outputs
-	none
+	an int, 1 if the character is alphanumerical, 0 if it's not.
 */
-void	ft_bzero(void *pointer, size_t n)
+int	ft_isalnum(int c)
 {
-	while (n--)
-		*(char *)pointer++ = '\0';
+	if (isalpha(c) || isdigit(c))
+		return (1);
+	else
+		return (0);
 }

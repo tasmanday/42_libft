@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 22:07:03 by tday              #+#    #+#             */
-/*   Updated: 2024/01/14 14:01:41 by tday             ###   ########.fr       */
+/*   Created: 2024/01/14 14:56:41 by tday              #+#    #+#             */
+/*   Updated: 2024/01/14 14:57:34 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 /*
 	Summary
-	fills a number of bytes (n) at a given memory location with 0 ('\0').
+	checks if the given character is a white space character.
 
 	Inputs
-	pointer = a pointer to the memory to be set.
-	n = number of bytes to be set to the character.
+	c = character (int variable as it uses ascii).
 
 	Outputs
-	none
+	an int, 1 if the character is a white space character, 0 if it's not.
 */
-void	ft_bzero(void *pointer, size_t n)
+int	ft_isspace(int c)
 {
-	while (n--)
-		*(char *)pointer++ = '\0';
+	if (c == ' ' || (9 <= c && c <= 13))
+		return (1);
+	else
+		return (0);
 }

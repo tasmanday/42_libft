@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 22:07:03 by tday              #+#    #+#             */
-/*   Updated: 2024/01/14 14:01:41 by tday             ###   ########.fr       */
+/*   Created: 2024/01/14 15:03:48 by tday              #+#    #+#             */
+/*   Updated: 2024/01/14 15:06:05 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 /*
 	Summary
-	fills a number of bytes (n) at a given memory location with 0 ('\0').
+	converts uppercase characters to lowercase characters.
 
 	Inputs
-	pointer = a pointer to the memory to be set.
-	n = number of bytes to be set to the character.
+	c = uppercase character (int variable as it uses ascii).
 
 	Outputs
-	none
+	lowerercase character (int variable as it uses ascii).
 */
-void	ft_bzero(void *pointer, size_t n)
+int	ft_tolower(int c)
 {
-	while (n--)
-		*(char *)pointer++ = '\0';
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }
