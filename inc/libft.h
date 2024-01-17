@@ -6,7 +6,7 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:50:58 by tday              #+#    #+#             */
-/*   Updated: 2024/01/14 15:09:16 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/17 22:13:07 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_dlist
 */
 
 /* character */
+
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);
@@ -70,7 +71,8 @@ void		ft_character(char c, int *length);
 void		ft_string(char *s, int *length);
 void		ft_decimal_integer(int d, int *length);
 void		ft_unsigned_integer(unsigned int u, int *length);
-void		ft_hexidecimal(unsigned int x, int *length, char char_case, int first);
+void		ft_hexidecimal(unsigned int x, int *length, char char_case,
+				int first);
 void		ft_pointer(size_t p, int *length, int first);
 int			ft_printf(const char *string, ...);
 
@@ -86,7 +88,21 @@ void		*ft_calloc(size_t number, size_t size);
 void		*ft_realloc(void *pointer, size_t orig_size, size_t new_size);
 
 /* conversion */
+
 long long	ft_atoi(const char *str);
 char		*ft_itoa(long long n);
+
+/* math */
+
+long long	ft_abs(long long n);
+long double	ft_fabs(long double n);
+int			ft_is_even(long long n);
+int			ft_is_odd(long long n);
+long long	ft_power(long long n, long long power);
+long long	ft_sqrt(long long n);
+long double	ft_remainder(long double numerator, long double denominator);
+long long	ft_round(long double n);
+long double	ft_roundf(long double n, int decimal_places);
+size_t		ft_get_len_int(long long n);
 
 #endif

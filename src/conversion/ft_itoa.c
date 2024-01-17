@@ -6,31 +6,11 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 23:07:44 by tday              #+#    #+#             */
-/*   Updated: 2024/01/16 23:07:44 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/17 22:13:16 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
-
-/*
-	Summary
-	calculates the length of an integer by recursively dividing it by 10 until
-	it becomes < 10.
-
-	Inputs
-	n = the integer for wich the length needs to be calculated.
-
-	Outputs
-	the length of the integer.
-*/
-static size_t	get_len_int(long long n)
-{
-	if (0 <= n && n < 10)
-		return (1);
-	else if (-10 < n && n < 0)
-		return (2);
-	return (1 + get_len_int(n / 10));
-}
 
 /*
 	Summary
@@ -49,7 +29,7 @@ char	*ft_itoa(long long n)
 
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	len = get_len_int(n);
+	len = ft_get_len_int(n);
 	str = ft_calloc((len + 1), sizeof(char));
 	if (!str)
 		return (NULL);
