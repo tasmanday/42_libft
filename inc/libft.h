@@ -6,7 +6,7 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:50:58 by tday              #+#    #+#             */
-/*   Updated: 2024/01/17 22:13:07 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/21 17:12:22 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_dlist
 ** prototypes
 */
 
-/* character */
+/* characters */
 
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
@@ -86,6 +86,7 @@ void		*ft_memchr(const void *ptr, int c, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		*ft_calloc(size_t number, size_t size);
 void		*ft_realloc(void *pointer, size_t orig_size, size_t new_size);
+void		free_null(void **mem_ptr);
 
 /* conversion */
 
@@ -104,5 +105,21 @@ long double	ft_remainder(long double numerator, long double denominator);
 long long	ft_round(long double n);
 long double	ft_roundf(long double n, int decimal_places);
 size_t		ft_get_len_int(long long n);
+
+/* strings */
+size_t		ft_strlen(const char *string);
+char		*ft_strcpy(char *dest, char *src);
+size_t		ft_strlcpy(char *dest, const char *src, size_t dest_len);
+char		*ft_strcat(char *dest, char *src);
+size_t		ft_strlcat(char *dest, const char *src, size_t dest_buff_len);
+char		*ft_strchr(const char *str, int c);
+char		*ft_strrchr(const char *str, int c);
+char		*ft_strstr(char *str, char *to_find);
+char		*ft_strnstr(const char *haystack, const char *needle, size_t n);
+int			ft_strcmp(char *s1, char *s2);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
+char		*ft_strdup(char *src);
+char		*ft_substr(char const *str, unsigned int start, size_t sub_len);
+char		*ft_strjoin(const char *s1, const char *s2);
 
 #endif
