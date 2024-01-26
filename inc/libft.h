@@ -6,7 +6,7 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:50:58 by tday              #+#    #+#             */
-/*   Updated: 2024/01/21 17:12:22 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/26 11:31:11 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ long double	ft_roundf(long double n, int decimal_places);
 size_t		ft_get_len_int(long long n);
 
 /* strings */
+
 size_t		ft_strlen(const char *string);
 char		*ft_strcpy(char *dest, char *src);
 size_t		ft_strlcpy(char *dest, const char *src, size_t dest_len);
@@ -121,5 +122,17 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 char		*ft_strdup(char *src);
 char		*ft_substr(char const *str, unsigned int start, size_t sub_len);
 char		*ft_strjoin(const char *s1, const char *s2);
+char		*ft_strtrim(const char *s1, const char *set);
+char		**ft_split(const char *input_str, char delimeter);
+char		*ft_strmapi(const char *str, char (*f)(unsigned int, char));
+void		ft_striteri(char *str, void (*f)(unsigned int, char *));
+char		*get_next_line(int fd);
+
+/* arrays */
+
+void		free_array(void **arr_ptr);
+void		reverse_int_arr(int *arr, int size);
+void		reverse_char_arr(char *arr, int size);
+void		reverse_str_arr(char **arr, int size);
 
 #endif
