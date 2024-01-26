@@ -6,11 +6,11 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:14:11 by tday              #+#    #+#             */
-/*   Updated: 2024/01/26 10:33:56 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/26 12:58:04 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/libft.h"'
+#include "../inc/libft.h"
 
 /*
 ***************** this function does not free allocated memory ****************

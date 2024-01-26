@@ -6,7 +6,7 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:39:16 by tday              #+#    #+#             */
-/*   Updated: 2024/01/21 15:50:40 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/26 12:56:47 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strchr(const char *str, int c)
 			return ((char *)str);
 		str++;
 	}
-	if ((unsigned char)c == '/0')
+	if ((unsigned char)c == '\0')
 		return ((char *)str);
 	return (0);
 }
