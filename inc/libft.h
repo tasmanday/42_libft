@@ -6,7 +6,7 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:50:58 by tday              #+#    #+#             */
-/*   Updated: 2024/01/27 17:51:51 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/27 19:35:02 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@
 # define MGNTA	"\033[1;35m"
 # define CYAN	"\033[1;36m"
 # define WHITE	"\033[1;37m"
+
+/*
+** exit values
+*/
+
+# define EXIT_SUCCESS	0
+# define EXIT_FAILURE	1
 
 /*
 ** structs

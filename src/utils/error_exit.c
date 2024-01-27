@@ -6,7 +6,7 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 17:30:25 by tday              #+#    #+#             */
-/*   Updated: 2024/01/27 17:47:34 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/27 19:35:21 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@
 void	error_exit(const char *error)
 {
 	ft_printf(RED"%s\n"DEF, error);
-	exit(1);
+	exit(EXIT_FAILURE);
 }
