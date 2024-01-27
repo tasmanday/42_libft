@@ -6,7 +6,7 @@
 #    By: tday <tday@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/26 11:33:08 by tday              #+#    #+#              #
-#    Updated: 2024/01/26 13:47:49 by tday             ###   ########.fr        #
+#    Updated: 2024/01/27 17:54:31 by tday             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 NAME			:=		libft.a
 SRC_DIRS		:=		src/array src/character src/conversion src/ft_printf	\
-						src/math src/memory src/put src/string
+						src/math src/memory src/put src/string src/utils
 INC_DIR			:=		inc
 SRCS 			:= 		$(addprefix src/array/, free_array.c reverse_char_arr.c	\
 									reverse_int_arr.c reverse_str_arr.c)		\
@@ -33,7 +33,7 @@ SRCS 			:= 		$(addprefix src/array/, free_array.c reverse_char_arr.c	\
 						$(addprefix src/memory/, free_null.c ft_bzero.c			\
 									ft_calloc.c ft_memchr.c ft_memcmp.c			\
 									ft_memcpy.c ft_memmove.c ft_memset.c		\
-									ft_realloc.c)								\
+									ft_realloc.c safe_malloc.c)					\
 						$(addprefix src/put/, ft_putchar_fd.c ft_putchar.c		\
 									ft_putendl_fd.c ft_putnbr_fd.c ft_putnbr.c	\
 									ft_putstr_fd.c ft_putstr.c)					\
@@ -43,7 +43,8 @@ SRCS 			:= 		$(addprefix src/array/, free_array.c reverse_char_arr.c	\
 									ft_strlcat.c ft_strlcpy.c ft_strlen.c		\
 									ft_strmapi.c ft_strncmp.c ft_strnstr.c		\
 									ft_strrchr.c ft_strstr.c ft_strtrim.c		\
-									ft_substr.c get_next_line.c)
+									ft_substr.c get_next_line.c)				\
+						$(addprefix src/utils/, error_exit.c)
 OBJS 			:=		$(SRCS:.c=.o)
 CC				:=		cc
 CFLAGS			:=		-Wall -Wextra -Werror -I$(INC_DIR)

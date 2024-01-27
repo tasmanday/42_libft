@@ -6,18 +6,36 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:50:58 by tday              #+#    #+#             */
-/*   Updated: 2024/01/26 11:31:11 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/27 17:51:51 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+/*
+** libraries
+*/
+
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <stdarg.h>
 # include <limits.h>
+
+/*
+** text colours
+*/
+
+# define DEF	"\033[0m"
+# define GRAY	"\033[1;30m"
+# define RED	"\033[1;31m"
+# define GREEN	"\033[1;32m"
+# define YELLOW	"\033[1;33m"
+# define BLUE	"\033[1;34m"
+# define MGNTA	"\033[1;35m"
+# define CYAN	"\033[1;36m"
+# define WHITE	"\033[1;37m"
 
 /*
 ** structs
@@ -87,6 +105,7 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		*ft_calloc(size_t number, size_t size);
 void		*ft_realloc(void *pointer, size_t orig_size, size_t new_size);
 void		free_null(void **mem_ptr);
+void		*safe_malloc(size_t bytes);
 
 /* conversion */
 
@@ -134,5 +153,8 @@ void		free_array(void **arr_ptr);
 void		reverse_int_arr(int *arr, int size);
 void		reverse_char_arr(char *arr, int size);
 void		reverse_str_arr(char **arr, int size);
+
+/* utils */
+void		error_exit(const char *error);
 
 #endif
