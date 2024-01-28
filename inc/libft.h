@@ -6,7 +6,7 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:50:58 by tday              #+#    #+#             */
-/*   Updated: 2024/01/27 19:35:02 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/28 12:08:56 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,22 @@ void		reverse_char_arr(char *arr, int size);
 void		reverse_str_arr(char **arr, int size);
 
 /* utils */
+
 void		error_exit(const char *error);
+void		no_op(void *arg);
+
+/* singularly linked lists */
+
+t_list		*lst_new_node(void *data);
+void		lst_add_head(t_list **lst_head, t_list *new_node);
+void		lst_add_tail(t_list **lst_head, t_list *new_node);
+void		lst_insert_after(t_list *original_node, t_list *node_to_insert);
+int			lst_size(t_list *lst);
+t_list		*lst_last_node(t_list *lst_head);
+t_list		*lst_get_prev(t_list **lst_head, t_list *curr);
+void		lst_del_node(t_list **lst_head, t_list *node_to_del, \
+			void (*ft_del)(void*));
+void		lst_del_head(t_list **lst_head, void (*ft_del)(void*));
+void		lst_del_tail(t_list *lst_head, void (*ft_del)(void*));
 
 #endif

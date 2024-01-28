@@ -6,7 +6,7 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 14:03:19 by tday              #+#    #+#             */
-/*   Updated: 2024/01/21 14:08:36 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/28 11:43:42 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 */
 void	free_null(void **mem_ptr)
 {
-	if (*mem_ptr != NULL)
+	if (*mem_ptr != NULL && mem_ptr != NULL)
 	{
 		free(*mem_ptr);
 		*mem_ptr = NULL;

@@ -6,7 +6,7 @@
 #    By: tday <tday@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/26 11:33:08 by tday              #+#    #+#              #
-#    Updated: 2024/01/27 17:54:31 by tday             ###   ########.fr        #
+#    Updated: 2024/01/28 11:51:03 by tday             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ SRCS 			:= 		$(addprefix src/array/, free_array.c reverse_char_arr.c	\
 									ft_strmapi.c ft_strncmp.c ft_strnstr.c		\
 									ft_strrchr.c ft_strstr.c ft_strtrim.c		\
 									ft_substr.c get_next_line.c)				\
-						$(addprefix src/utils/, error_exit.c)
+						$(addprefix src/utils/, error_exit.c no_op.c)
 OBJS 			:=		$(SRCS:.c=.o)
 CC				:=		cc
 CFLAGS			:=		-Wall -Wextra -Werror -I$(INC_DIR)
