@@ -6,7 +6,7 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:10:53 by tday              #+#    #+#             */
-/*   Updated: 2024/01/28 12:09:05 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/28 12:09:34 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	lst_del_node(t_list **lst_head, t_list *node_to_del, \
 {
 	t_list	*prev;
 
-	if (!lst_head || !*lst_head || !node_to_del )
+	if (!lst_head || !*lst_head || !node_to_del)
 	{
 		ft_printf(RED"lst_del_node error\n"DEF);
 		return ;
