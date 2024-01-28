@@ -6,7 +6,7 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:41:03 by tday              #+#    #+#             */
-/*   Updated: 2024/01/28 14:07:56 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/28 15:02:47 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,8 @@ void	lst_del_head(t_list **lst_head, void (*ft_del)(void*))
 		put_error("lst_del_head error");
 		return ;
 	}
-	temp = *lst_head;
-	temp = temp->next;
+	temp = (*lst_head)->next;
 	ft_del((*lst_head)->data);
-	free_null(*lst_head);
+	free_null((void **)lst_head);
 	*lst_head = temp;
 }

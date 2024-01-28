@@ -6,7 +6,7 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:51:31 by tday              #+#    #+#             */
-/*   Updated: 2024/01/28 14:05:37 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/28 15:16:41 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,21 @@
 	Outputs
 	none.
 */
-void	lst_del_tail(t_list *lst_head, void (*ft_del)(void*))
+void	lst_del_tail(t_list **lst_head, void (*ft_del)(void*))
 {
 	t_list	*temp;
 	t_list	*tail_node;
 
-	if (!lst_head || !lst_head->next)
+	if (!lst_head || !*lst_head)
 	{
 		put_error("lst_del_tail error");
+		return ;
+	}
+	if (!(*lst_head)->next)
+	{
+		ft_del((*lst_head)->data);
+		free(*lst_head);
+		*lst_head = NULL;
 		return ;
 	}
 	temp = lst_head;
@@ -41,5 +48,5 @@ void	lst_del_tail(t_list *lst_head, void (*ft_del)(void*))
 	tail_node = temp->next;
 	temp->next = NULL;
 	ft_del(tail_node->data);
-	free_null(tail_node);
+	free(tail_node);
 }

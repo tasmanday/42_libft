@@ -6,7 +6,7 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:10:53 by tday              #+#    #+#             */
-/*   Updated: 2024/01/28 14:13:42 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/28 15:04:22 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	lst_del_node(t_list **lst_head, t_list *node_to_del, \
 {
 	t_list	*prev;
 
-	if (!lst_head || !*lst_head || !node_to_del)
+	if (!lst_head || !*lst_head || !node_to_del || \
+	!lst_has_node(*lst_head, node_to_del))
 	{
 		put_error("lst_del_node error");
 		return ;
@@ -49,5 +50,5 @@ void	lst_del_node(t_list **lst_head, t_list *node_to_del, \
 	}
 	prev->next = node_to_del->next;
 	ft_del(node_to_del->data);
-	free_null(node_to_del);
+	free(node_to_del);
 }

@@ -6,7 +6,7 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:50:58 by tday              #+#    #+#             */
-/*   Updated: 2024/01/28 14:11:22 by tday             ###   ########.fr       */
+/*   Updated: 2024/01/28 15:16:57 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <stdio.h>
 # include <stdarg.h>
 # include <limits.h>
+# include <stdbool.h>
 
 /*
 ** text colours
@@ -176,9 +177,11 @@ void		lst_insert_after(t_list *original_node, t_list *node_to_insert);
 int			lst_size(t_list *lst);
 t_list		*lst_last_node(t_list *lst_head);
 t_list		*lst_get_prev(t_list *lst_head, t_list *curr);
+bool		lst_has_node(t_list *lst_head, t_list *node_to_find);
 void		lst_del_node(t_list **lst_head, t_list *node_to_del, \
 			void (*ft_del)(void*));
 void		lst_del_head(t_list **lst_head, void (*ft_del)(void*));
-void		lst_del_tail(t_list *lst_head, void (*ft_del)(void*));
+void		lst_del_tail(t_list **lst_head, void (*ft_del)(void*));
+void		lst_del_all(t_list **lst_head, void (*ft_del)(void*));
 
 #endif
