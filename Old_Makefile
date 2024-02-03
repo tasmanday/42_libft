@@ -84,28 +84,23 @@ WHITE			:=		\033[1;37m
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				@$(AR) $(NAME) $(OBJS)
+				@ar -rcs $(NAME) $(OBJS)
 				@echo "$(CYAN)$(NAME) compiled successfully!$(DEFAULT_COLOUR)"
-				@echo "\n"
 
 $(OBJS):		%.o: %.c
 				@$(CC) $(CFLAGS) -c $< -o $@
 				@$(call check_dir_change,$<)
 
 clean:
-				@echo "\n"
-				@$(RM) $(OBJS)
+				@rm -f $(OBJS)
 				@$(foreach dir,$(SRC_DIRS),echo "$(MAGENTA)$(notdir 			\
 				$(patsubst %/,%,$(dir))) object files deleted.					\
 				$(DEFAULT_COLOUR)";)
 
-aclean: 		
-				@$(RM) $(NAME)
+fclean: 		clean
+				@rm -f $(NAME)
 				@echo "$(YELLOW)$(NAME) deleted.$(DEFAULT_COLOUR)"
-				@echo "\n"
-
-fclean: 		clean aclean
 
 re: 			fclean all
 
-.PHONY: 		all clean aclean fclean re
+.PHONY: 		all clean fclean re
