@@ -29,8 +29,6 @@
 */
 void	lst_del_all(t_list **lst_head, void (*ft_del)(void*))
 {
-	t_list	*temp;
-
 	if (!lst_head || !*lst_head)
 	{
 		put_error("lst_del_all error");

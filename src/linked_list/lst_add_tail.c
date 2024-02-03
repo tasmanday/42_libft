@@ -30,7 +30,7 @@ void	lst_add_tail(t_list **lst_head, t_list *new_node)
 
 	if (!*lst_head)
 	{
-		ft_lstadd_front(lst_head, new_node);
+		lst_add_head(lst_head, new_node);
 		return ;
 	}
 	last_node = lst_last_node(*lst_head);

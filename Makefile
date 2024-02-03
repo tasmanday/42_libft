@@ -14,7 +14,8 @@
 
 NAME			:=		libft.a
 SRC_DIRS		:=		src/array src/character src/conversion src/ft_printf	\
-						src/math src/memory src/put src/string src/utils
+						src/linked_list src/math src/memory src/put src/string	\
+						src/utils
 INC_DIR			:=		inc
 SRCS 			:= 		$(addprefix src/array/, free_array.c reverse_char_arr.c	\
 									reverse_int_arr.c reverse_str_arr.c)		\
@@ -26,6 +27,12 @@ SRCS 			:= 		$(addprefix src/array/, free_array.c reverse_char_arr.c	\
 									ft_decimal_integer.c ft_hexadecimal.c		\
 									ft_printf.c ft_string.c 					\
 									ft_unsigned_integer.c)						\
+						$(addprefix src/linked_list/, lst_add_head.c			\
+									lst_add_tail.c lst_del_all.c lst_del_head.c	\
+									lst_del_node.c lst_del_tail.c				\
+									lst_get_prev.c lst_has_node.c				\
+									lst_insert_after.c lst_last_node.c			\
+									lst_new_node.c lst_size.c)					\
 						$(addprefix src/math/, ft_abs.c ft_fabs.c ft_power.c	\
 									ft_get_len_int.c ft_is_even.c ft_is_odd.c	\
 									ft_remainder.c ft_round.c ft_roundf.c		\
@@ -44,7 +51,8 @@ SRCS 			:= 		$(addprefix src/array/, free_array.c reverse_char_arr.c	\
 									ft_strmapi.c ft_strncmp.c ft_strnstr.c		\
 									ft_strrchr.c ft_strstr.c ft_strtrim.c		\
 									ft_substr.c get_next_line.c)				\
-						$(addprefix src/utils/, error_exit.c no_op.c)
+						$(addprefix src/utils/, error_exit.c no_op.c			\
+									put_error.c)								
 OBJS 			:=		$(SRCS:.c=.o)
 CC				:=		cc
 CFLAGS			:=		-Wall -Wextra -Werror -I$(INC_DIR)

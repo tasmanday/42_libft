@@ -42,7 +42,7 @@ void	lst_del_tail(t_list **lst_head, void (*ft_del)(void*))
 		*lst_head = NULL;
 		return ;
 	}
-	temp = lst_head;
+	temp = *lst_head;
 	while (temp->next->next)
 		temp = temp->next;
 	tail_node = temp->next;
