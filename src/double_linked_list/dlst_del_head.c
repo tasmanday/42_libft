@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_del_tail.c                                     :+:      :+:    :+:   */
+/*   dlst_del_head.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/28 11:51:31 by tday              #+#    #+#             */
-/*   Updated: 2024/01/28 15:21:03 by tday             ###   ########.fr       */
+/*   Created: 2024/02/04 22:16:39 by tday              #+#    #+#             */
+/*   Updated: 2024/02/04 22:16:39 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 /*
 	Summary
-	deletes the tail/last node of a singularly linked list.
+	deletes the head/first node of a doubly linked list.
 
 	Inputs
-	[t_list *] lst_head: a pointer to the head of the linked list.
+	[t_dlist **] dlst_head: a pointer to a pointer to the head of the linked
+			list. needs to be a double pointer so that changes to lst_head
+			will occur outside the function as well.
 	ft_del: a function pointer to a function that will be used to delete the
 			data stored in the node. no_op function can be used here if the
 			data in the node doesn't need to be freed.
@@ -25,28 +27,24 @@
 	Outputs
 	none.
 */
-void	lst_del_tail(t_list **lst_head, void (*ft_del)(void*))
+void	dlst_del_head(t_dlist **dlst_head, void (*ft_del)(void*))
 {
-	t_list	*temp;
-	t_list	*tail_node;
+	t_dlist	*temp;
 
-	if (!lst_head || !*lst_head)
+	if (!dlst_head || !*dlst_head)
 	{
-		error("lst_del_tail error");
+		error("dlst_del_head error");
 		return ;
 	}
-	if (!(*lst_head)->next)
+	if (!(*dlst_head)->next)
 	{
-		ft_del((*lst_head)->data);
-		free(*lst_head);
-		*lst_head = NULL;
+		ft_del((*dlst_head)->data);
+		free_null(dlst_head);
 		return ;
 	}
-	temp = *lst_head;
-	while (temp->next->next)
-		temp = temp->next;
-	tail_node = temp->next;
-	temp->next = NULL;
-	ft_del(tail_node->data);
-	free(tail_node);
+	temp = (*dlst_head)->next;
+	temp->prev = NULL;
+	ft_del((*dlst_head)->data);
+	free_null(dlst_head);
+	*dlst_head = temp;
 }

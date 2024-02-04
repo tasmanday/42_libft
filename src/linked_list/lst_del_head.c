@@ -33,7 +33,13 @@ void	lst_del_head(t_list **lst_head, void (*ft_del)(void*))
 
 	if (!lst_head || !*lst_head)
 	{
-		put_error("lst_del_head error");
+		error("lst_del_head error");
+		return ;
+	}
+	if (!(*lst_head)->next)
+	{
+		ft_del((*lst_head)->data);
+		free_null(lst_head);
 		return ;
 	}
 	temp = (*lst_head)->next;

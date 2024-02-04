@@ -49,8 +49,6 @@
 ** structs
 */
 
-/* linked lists */
-
 /* singularly linked list */
 typedef struct s_list
 {
@@ -164,7 +162,7 @@ void		reverse_str_arr(char **arr, int size);
 
 /* utils */
 
-void		put_error(const char *error);
+void		error(const char *error);
 void		error_exit(const char *error);
 void		no_op(void *arg);
 
@@ -183,5 +181,20 @@ void		lst_del_node(t_list **lst_head, t_list *node_to_del, \
 void		lst_del_head(t_list **lst_head, void (*ft_del)(void*));
 void		lst_del_tail(t_list **lst_head, void (*ft_del)(void*));
 void		lst_del_all(t_list **lst_head, void (*ft_del)(void*));
+
+/* doubly linked lists */
+
+t_dlist		*dlst_new_node(void *data);
+void		dlst_add_head(t_dlist **dlst_head, t_dlist *new_node);
+void		dlst_add_tail(t_dlist **dlst_head, t_dlist *new_node);
+void		dlst_insert_after(t_dlist *original_node, t_dlist *node_to_insert);
+t_dlist		*dlst_last_node(t_dlist *dlst_head);
+int			dlst_size(t_dlist *dlst);
+bool		dlst_has_node(t_dlist *dlst_head, t_dlist *node_to_find);
+void		dlst_del_node(t_dlist **dlst_head, t_dlist *node_to_del, \
+			void (*ft_del)(void*));
+void		dlst_del_head(t_dlist **dlst_head, void (*ft_del)(void*));
+void		dlst_del_tail(t_dlist **dlst_head, void (*ft_del)(void*));
+void		dlst_del_all(t_dlist **dlst_head, void (*ft_del)(void*));
 
 #endif
