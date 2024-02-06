@@ -31,7 +31,7 @@ void	dlst_del_all(t_dlist **dlst_head, void (*ft_del)(void*))
 {
 	if (!dlst_head || !*dlst_head)
 	{
-		error("dlst_del_all error");
+		error("dlst_del_all error: !dlst_head");
 		return ;
 	}
 	while (*dlst_head)

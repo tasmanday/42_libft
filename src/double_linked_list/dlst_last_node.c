@@ -27,7 +27,10 @@ t_dlist	*dlst_last_node(t_dlist *dlst_head)
 	t_dlist	*last_node;
 
 	if (!dlst_head)
+	{
+		error("dlst_last_node error: !dlst_head");
 		return (NULL);
+	}
 	last_node = dlst_head;
 	while (last_node->next)
 		last_node = last_node->next;

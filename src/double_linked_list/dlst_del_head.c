@@ -33,18 +33,18 @@ void	dlst_del_head(t_dlist **dlst_head, void (*ft_del)(void*))
 
 	if (!dlst_head || !*dlst_head)
 	{
-		error("dlst_del_head error");
+		error("dlst_del_head error: !dlst_head");
 		return ;
 	}
 	if (!(*dlst_head)->next)
 	{
 		ft_del((*dlst_head)->data);
-		free_null(dlst_head);
+		free_null((void **)dlst_head);
 		return ;
 	}
 	temp = (*dlst_head)->next;
 	temp->prev = NULL;
 	ft_del((*dlst_head)->data);
-	free_null(dlst_head);
+	free_null((void **)dlst_head);
 	*dlst_head = temp;
 }

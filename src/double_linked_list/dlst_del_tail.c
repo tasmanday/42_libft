@@ -32,18 +32,18 @@ void	dlst_del_tail(t_dlist **dlst_head, void (*ft_del)(void*))
 
 	if (!dlst_head || !*dlst_head)
 	{
-		error("dlst_del_tail error");
+		error("dlst_del_tail error: !dlst_head");
 		return ;
 	}
 	if (!(*dlst_head)->next)
 	{
 		ft_del((*dlst_head)->data);
-		free_null(dlst_head);
+		free_null((void **)dlst_head);
 		return ;
 	}
 	tail_node = dlst_last_node(*dlst_head);
 	temp = tail_node->prev;
 	temp->next = NULL;
 	ft_del(tail_node->data);
-	free_null(&tail_node);
+	free(tail_node);
 }
