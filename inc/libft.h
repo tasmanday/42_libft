@@ -6,7 +6,7 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:50:58 by tday              #+#    #+#             */
-/*   Updated: 2024/01/28 15:16:57 by tday             ###   ########.fr       */
+/*   Updated: 2024/04/14 15:59:09 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,13 @@ typedef struct s_dlist
 	struct s_dlist	*next;
 }				t_dlist;
 
+/* dumb ft_printf_fd norm struct */
+typedef struct s_param
+{
+	int		fd;
+	char	fs;
+}				t_param;
+
 /*
 ** prototypes
 */
@@ -95,10 +102,20 @@ void		ft_character(char c, int *length);
 void		ft_string(char *s, int *length);
 void		ft_decimal_integer(int d, int *length);
 void		ft_unsigned_integer(unsigned int u, int *length);
-void		ft_hexidecimal(unsigned int x, int *length, char char_case,
+void		ft_hexidecimal(unsigned int x, int *length, char char_case, \
 				int first);
 void		ft_pointer(size_t p, int *length, int first);
 int			ft_printf(const char *string, ...);
+void		ft_character_fd(int fd, char c, int *length);
+void		ft_decimal_integer_fd(int fd, int d, int *length);
+void		ft_hexadecimal_fd(int fd, unsigned int x, int *length, \
+				char char_case);
+void		ft_hex_fd_recursive(int fd, unsigned int x, int *length, \
+				char char_case);
+void		ft_pointer_fd(int fd, size_t p, int *length, int first);
+void		ft_string_fd(int fd, char *s, int *length);
+void		ft_unsigned_integer_fd(int fd, unsigned int u, int *length);
+int			ft_printf_fd(int fd, const char *string, ...);
 
 /* memory */
 
@@ -111,7 +128,8 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		*ft_calloc(size_t number, size_t size);
 void		*ft_realloc(void *pointer, size_t orig_size, size_t new_size);
 void		free_null(void **mem_ptr);
-void		*safe_malloc(size_t bytes);
+void		*safe_malloc(size_t bytes, char *error_message);
+void		*safe_calloc(size_t number, size_t size, char *error_message);
 
 /* conversion */
 
@@ -145,12 +163,15 @@ char		*ft_strnstr(const char *haystack, const char *needle, size_t n);
 int			ft_strcmp(char *s1, char *s2);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 char		*ft_strdup(char *src);
-char		*ft_substr(char const *str, unsigned int start, size_t sub_len);
+char		*ft_substr(char const *str, size_t start, size_t length);
+char		*ft_strjoin_any(int num_of_str, ...);
 char		*ft_strjoin(const char *s1, const char *s2);
 char		*ft_strtrim(const char *s1, const char *set);
-char		**ft_split(const char *input_str, char delimeter);
-char		*ft_strmapi(const char *str, char (*f)(unsigned int, char));
-void		ft_striteri(char *str, void (*f)(unsigned int, char *));
+char		**ft_split(const char *input_str, char delimiter);
+char		**ft_split_first(const char *input_str, char delimiter);
+char		*ft_strmapi(const char *str, char (*f)(size_t, char));
+void		ft_striteri(char *str, void (*f)(size_t, char *));
+char		*ft_replace_substr(char *str, int start, int end, char *substr);
 char		*get_next_line(int fd);
 
 /* arrays */
@@ -166,6 +187,7 @@ void		error(const char *error);
 void		error_exit(const char *error);
 void		no_op(void *arg);
 void		debug(const char *str);
+void		debug_int(int num);
 
 /* singularly linked lists */
 
@@ -192,6 +214,7 @@ void		dlst_insert_after(t_dlist *original_node, t_dlist *node_to_insert);
 t_dlist		*dlst_last_node(t_dlist *dlst_head);
 int			dlst_size(t_dlist *dlst);
 bool		dlst_has_node(t_dlist *dlst_head, t_dlist *node_to_find);
+void		dlst_swap_nodes(t_dlist **head, t_dlist *node1, t_dlist *node2);
 void		dlst_del_node(t_dlist **dlst_head, t_dlist *node_to_del, \
 			void (*ft_del)(void*));
 void		dlst_del_head(t_dlist **dlst_head, void (*ft_del)(void*));

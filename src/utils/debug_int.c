@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   debug_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 09:43:22 by tday              #+#    #+#             */
-/*   Updated: 2024/02/11 17:51:20 by tday             ###   ########.fr       */
+/*   Created: 2024/03/10 14:25:56 by tday              #+#    #+#             */
+/*   Updated: 2024/03/10 14:31:56 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,15 @@
 
 /*
 	Summary
-	applies the function 'f' to each character of the given string.
-	modifies the given string.
+	prints an debug message in red colour.
 
 	Inputs
-	str = given string.
-	f = function.
+	str: a string containing the debug message to be printed.
 
 	Outputs
 	none.
 */
-void	ft_striteri(char *str, void (*f)(size_t, char *))
+void	debug_int(int num)
 {
-	int	i;
-
-	if (!str || !f)
-		return (error("ft_striteri !str or !f"));
-	i = 0;
-	while (str[i] != '\0')
-	{
-		f(i, str + i);
-		i++;
-	}
+	ft_printf(CYAN"%i\n"DEF, num);
 }

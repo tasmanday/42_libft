@@ -6,13 +6,15 @@
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 13:48:39 by tday              #+#    #+#             */
-/*   Updated: 2024/01/14 14:01:25 by tday             ###   ########.fr       */
+/*   Updated: 2024/02/25 21:37:40 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
 /*
+	**** ALLOCATES MEMORY ****
+
 	Summary
 	reallocates memory for a given pointer.
 
@@ -41,7 +43,7 @@ void	*ft_realloc(void *pointer, size_t orig_size, size_t new_size)
 		free(pointer);
 	else if (!pointer)
 	{
-		new_pointer = malloc(new_size);
+		new_pointer = ft_calloc(1, new_size);
 		if (!new_pointer)
 			return (error("ft_realloc malloc error"), NULL);
 	}
@@ -49,7 +51,7 @@ void	*ft_realloc(void *pointer, size_t orig_size, size_t new_size)
 		return (pointer);
 	else if (pointer && new_size > orig_size)
 	{
-		new_pointer = malloc(new_size);
+		new_pointer = ft_calloc(1, new_size);
 		if (!new_pointer)
 			return (error("ft_realloc malloc error"), NULL);
 		ft_memcpy(new_pointer, pointer, orig_size);

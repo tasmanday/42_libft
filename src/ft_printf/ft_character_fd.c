@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_character_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tday <tday@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 09:43:22 by tday              #+#    #+#             */
-/*   Updated: 2024/02/11 17:51:20 by tday             ###   ########.fr       */
+/*   Created: 2024/03/31 19:13:54 by tday              #+#    #+#             */
+/*   Updated: 2024/03/31 19:13:54 by tday             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,20 @@
 
 /*
 	Summary
-	applies the function 'f' to each character of the given string.
-	modifies the given string.
+	writes the character to the given file descriptor and increases the value
+	of the character counter at &length.
 
 	Inputs
-	str = given string.
-	f = function.
+	[int] fd: file desciptor to output to.
+	[char] c: character to print.
+	[int *] length: pointer to an integer that keeps count of how many
+		characters have been printed.
 
 	Outputs
 	none.
-*/
-void	ft_striteri(char *str, void (*f)(size_t, char *))
+ */
+void	ft_character_fd(int fd, char c, int *length)
 {
-	int	i;
-
-	if (!str || !f)
-		return (error("ft_striteri !str or !f"));
-	i = 0;
-	while (str[i] != '\0')
-	{
-		f(i, str + i);
-		i++;
-	}
+	write(fd, &c, 1);
+	(*length)++;
 }

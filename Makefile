@@ -6,7 +6,7 @@
 #    By: tday <tday@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/26 11:33:08 by tday              #+#    #+#              #
-#    Updated: 2024/01/28 11:51:03 by tday             ###   ########.fr        #
+#    Updated: 2024/03/10 14:27:39 by tday             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,11 @@ SRCS 			:= 		$(addprefix src/array/, free_array.c reverse_char_arr.c	\
 						$(addprefix src/conversion/, ft_atoi.c ft_itoa.c)		\
 						$(addprefix src/ft_printf/, ft_character.c ft_pointer.c	\
 									ft_decimal_integer.c ft_hexadecimal.c		\
-									ft_printf.c ft_string.c 					\
-									ft_unsigned_integer.c)						\
+									ft_string.c ft_unsigned_integer.c			\
+									ft_printf.c ft_character_fd.c				\
+									ft_decimal_integer_fd.c ft_hexadecimal_fd.c	\
+									ft_pointer_fd.c ft_string_fd.c				\
+									ft_unsigned_int_fd.c ft_printf_fd.c)		\
 						$(addprefix src/linked_list/, lst_add_head.c			\
 									lst_add_tail.c lst_del_all.c lst_del_head.c	\
 									lst_del_node.c lst_del_tail.c				\
@@ -40,7 +43,7 @@ SRCS 			:= 		$(addprefix src/array/, free_array.c reverse_char_arr.c	\
 						$(addprefix src/memory/, free_null.c ft_bzero.c			\
 									ft_calloc.c ft_memchr.c ft_memcmp.c			\
 									ft_memcpy.c ft_memmove.c ft_memset.c		\
-									ft_realloc.c safe_malloc.c)					\
+									ft_realloc.c safe_malloc.c safe_calloc.c)	\
 						$(addprefix src/put/, ft_putchar_fd.c ft_putchar.c		\
 									ft_putendl_fd.c ft_putnbr_fd.c ft_putnbr.c	\
 									ft_putstr_fd.c ft_putstr.c)					\
@@ -50,15 +53,18 @@ SRCS 			:= 		$(addprefix src/array/, free_array.c reverse_char_arr.c	\
 									ft_strlcat.c ft_strlcpy.c ft_strlen.c		\
 									ft_strmapi.c ft_strncmp.c ft_strnstr.c		\
 									ft_strrchr.c ft_strstr.c ft_strtrim.c		\
-									ft_substr.c get_next_line.c)				\
+									ft_substr.c get_next_line.c 				\
+									ft_split_first.c ft_replace_substr.c		\
+									ft_strjoin_any.c)							\
 						$(addprefix src/utils/, error_exit.c no_op.c			\
-									error.c debug.c)							\
+									error.c debug.c debug_int.c)				\
 						$(addprefix src/double_linked_list/, dlst_add_head.c	\
 									dlst_add_tail.c dlst_del_all.c 				\
 									dlst_del_head.c	dlst_del_node.c 			\
 									dlst_del_tail.c	dlst_has_node.c				\
 									dlst_insert_after.c dlst_last_node.c		\
-									dlst_new_node.c dlst_size.c)
+									dlst_new_node.c dlst_size.c 				\
+									dlst_swap_nodes.c)
 OBJS 			:=		$(SRCS:.c=.o)
 CC				:=		cc
 CFLAGS			:=		-Wall -Wextra -Werror -I$(INC_DIR)
